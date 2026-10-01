@@ -60,7 +60,7 @@ Planned implementation: Python raster/geospatial pipeline, PyTorch model experim
 
 ## Run the included scaffold
 
-Python 3.12 is the tested local environment for this scaffold. Select a Python 3.12 executable and confirm `python --version` before creating the environment. CI also checks 3.11. The starter runtime uses only the standard library. M2's optional raster/vector/QA packages are pinned in `requirements/m2-pipeline.lock`; model/training dependencies remain gated.
+Python 3.12 is the tested local environment for this scaffold. Select a Python 3.12 executable and confirm `python --version` before creating the environment. CI runs the full M2 pipeline on Python 3.12 and checks the standard-library core separately on Python 3.11. M2's raster/vector/QA packages are pinned in `requirements/m2-pipeline.lock` and require Python 3.12 or newer; model/training dependencies remain gated.
 
 ```powershell
 python -m venv .venv
