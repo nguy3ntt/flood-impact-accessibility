@@ -16,6 +16,9 @@
 **/checkpoints/
 **/progress/
 **/production-notes/
+# Local milestone writeups; public methods use stable, non-milestone doc names.
+/M[0-9]*.md
+/docs/M[0-9]*.md
 
 # Secrets, local configuration, environments
 .env
