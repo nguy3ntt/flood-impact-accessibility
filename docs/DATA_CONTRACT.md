@@ -1,6 +1,6 @@
 # Canonical data contracts
 
-Implement schemas after M1 confirms real source fields. These are target contracts, not claims about existing files. Use UTC acquisition timestamps and explicit local-event context. All geometries carry CRS; metre-based operations use an appropriate local projected CRS, not degree distances.
+M2 implements a pilot raster catalog, event split and validated vector inputs. The graph, mapping prediction and scenario contracts below remain targets, not claims about existing model or accessibility files. Source imagery has day-level dates only; do not invent UTC acquisition hours. All geometries carry CRS; metre-based operations use an appropriate local projected CRS, not degree distances.
 
 ## Source manifest
 `source_id`, `dataset/version`, `source_url`, `retrieved_at_utc`, `original_filename`, `bytes`, `sha256`, `licence_url`, `licence_status`, `attribution`, `redistribution_status`, `event/date coverage`, `access_method`, `notes`. Use relative logical paths; do not publish credentials or personal absolute paths.
@@ -9,9 +9,13 @@ Implement schemas after M1 confirms real source fields. These are target contrac
 `tile_id`, `event_id`, `sensor`, `product/version`, `source_id`, `acquired_at_utc`, `crs`, `affine_transform`, `bounds`, `width/height`, `band_names/order`, `units`, `scale/offset`, `nodata`, `valid_mask_ref`, `cloud_mask_ref`, `label_ref`, `label_semantics`, `split_id`, `content_hash`, `processing_revision`.
 Validate paired footprints and alignment. Use nearest-neighbour for categorical labels/masks; document continuous-band resampling. Never fill missing labels as background. Audit overlap across chips and event splits. Optical/radar temporal offsets are features of evidence quality, not silently ignored.
 
+M2 implementation: `catalog.json` has all 446 hand-label STAC tile IDs, event aliases, source dates, bbox and official/analysis split fields. `split_manifest.json` freezes event membership, and `overlap_audit.json` records each positive-area bbox overlap. Three canonical pilot tiles store `label.tif`, `radar_db.tif`, `optical_toa.tif`, `validity.tif`, `cloud_status.tif` and `metadata.json`. Cloud status `255` means unknown everywhere; optical nodata-valid is not cloud-clear. Source and derived hashes are in the ignored run manifest. Full-benchmark tiles are not materialised yet.
+
 ## Road graph
 Nodes: `node_id`, coordinates, CRS, component ID. Edges: `edge_id`, `from/to`, geometry, directedness, length_m, cost_seconds, speed-source/assumption, bridge/tunnel/layer flags, road class, snapshot_date, source_id, topology_quality. Prevent false intersection connections at grade-separated crossings. Missing topology/direction must be surfaced.
 Facilities: `facility_id`, type, point, source/date, snapped_node, snap_distance_m, verified_status. Origins: `origin_id`, point, source/definition, optional population/date, snap evidence. Do not silently snap across disconnected components or beyond a declared maximum distance. AOI buffer must permit relevant paths; boundary truncation is not flood-induced isolation.
+
+M2 vector input tables are GeoJSON in EPSG:4326. The Spain pilot roads are clipped CEMS interpreted lines with projected length from EPSG:25830 and explicit unknown direction/grade separation/passability; they are marked `graph_eligible=false`. Hospital points include source snapshot date and distance to the tile, with no 2019 operating-status claim. Census-section origin points are geometric representatives, have null population and have not been snapped. A graph, estimated travel costs and connectivity are not built in M2.
 
 ## Mapping and road evidence
 Raster outputs: score, thresholded water, valid/unknown, permanent-water context where supported, model/run reference. Road evidence: `edge_id`, `event_id`, exposed_length_m, supported_length_m, water_score_summary, acquisition/date offset, coverage_fraction, unknown_fraction, grade_separation_status, evidence_refs, quality_flags`.

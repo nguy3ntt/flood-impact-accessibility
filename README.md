@@ -73,14 +73,13 @@ python -m venv .venv
 
 `demo` returns synthetic shortest-path costs and disconnected origins. Its distances, road states and facility are invented fixtures. It performs no satellite processing and makes no geographic claim. Installation needs access to the Python package index for the build backend; use `PYTHONPATH=src` in your shell to run the source directly if an offline environment is required.
 
-For the full test suite, install `requirements/m2-pipeline.lock` in the same environment. Local real-data work then runs `python scripts/build_m2_pilot.py` from the repository root. It requires the ignored pilot source files; a clean clone can still run the synthetic CLI commands above. `status` reports whether the local pilot files are present. The [M2 pipeline guide](docs/M2_PIPELINE.md) gives build, integrity and visual checks. The source audit, licence limits and case decision are in [Dataset feasibility](docs/DATASETS.md).
+For the full test suite, install `requirements/m2-pipeline.lock` in the same environment. Local real-data work then runs `python scripts/build_m2_pilot.py` from the repository root. It requires the ignored pilot source files; a clean clone can still run the synthetic CLI commands above. `status` reports whether the local pilot files are present. [Reproducibility](docs/REPRODUCIBILITY.md) gives build, integrity and visual checks. The source audit, licence limits and case decision are in [Dataset feasibility](docs/DATASETS.md).
 
 ## Documentation
 
 - [Detailed scope and success criteria](docs/SCOPE.md)
 - [Architecture and components](docs/ARCHITECTURE.md)
 - [Dataset sources and feasibility gates](docs/DATASETS.md)
-- [M2 canonical pilot and manual checks](docs/M2_PIPELINE.md)
 - [Data contracts](docs/DATA_CONTRACT.md)
 - [Evaluation protocol](docs/EVALUATION.md)
 - [Responsible interpretation](docs/RESPONSIBLE_USE.md)

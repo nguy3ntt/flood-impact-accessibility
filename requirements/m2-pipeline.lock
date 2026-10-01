@@ -1,0 +1,12 @@
+# Resolved M2 raster/vector/QA environment on Windows / Python 3.12, 2026-10-02.
+# Exact versions also used by the M2 CI test matrix; no training stack is included.
+affine==3.0.1
+attrs==26.1.0
+certifi==2026.7.22
+click==8.5.0
+numpy==2.5.3
+pillow==12.3.0
+pyparsing==3.3.3
+rasterio==1.5.2
+setuptools==84.0.0
+shapely==2.1.2

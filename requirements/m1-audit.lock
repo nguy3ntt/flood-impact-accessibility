@@ -1,0 +1,10 @@
+# Resolved M1 raster-audit environment on Windows / Python 3.12, 2026-10-01.
+# Install alongside the editable project. Training and serving stacks are deferred.
+affine==3.0.1
+attrs==26.1.0
+certifi==2026.7.22
+click==8.5.0
+numpy==2.5.3
+pyparsing==3.3.3
+rasterio==1.5.2
+setuptools==84.0.0

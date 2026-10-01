@@ -1,0 +1,14 @@
+{
+  "name": "event_holdout_v1",
+  "frozen_on": "2026-10-02",
+  "unit": "flood event, never chip or pixel",
+  "event_groups": {
+    "train": ["Bolivia", "India", "Pakistan", "Paraguay", "Sri-Lanka", "USA"],
+    "validation": ["Cambodia", "Ghana"],
+    "final_test": ["Nigeria", "Somalia"],
+    "case_study_exploratory": ["Spain"]
+  },
+  "rationale": "M1 inspected Bolivia, Ghana and Spain labels for feasibility. Spain is therefore reserved for exploratory case-study mapping and excluded from the untouched final benchmark test. Nigeria and Somalia source labels were not opened for method selection at freeze. Event-group results have few independent final groups and must report that limitation.",
+  "selection_rule": "No test labels, thresholds, model outputs or class balance were used to select final_test events.",
+  "official_split_use": "Secondary chip-level benchmark comparison only; it shares event groups across train, validation and test."
+}
