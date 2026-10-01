@@ -18,5 +18,12 @@ outputs
 work
 tmp
 logs
+cache
+build
+dist
+coverage
+.pytest_cache
+.mypy_cache
+.ruff_cache
 **/__pycache__
 node_modules
