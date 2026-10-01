@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "sources": [],
+  "required_fields": [
+    "source_id",
+    "dataset_version",
+    "source_url",
+    "retrieved_at_utc",
+    "original_filename",
+    "bytes",
+    "sha256",
+    "licence_url",
+    "licence_status",
+    "attribution",
+    "redistribution_status",
+    "coverage",
+    "notes"
+  ]
+}

@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flood-impact-accessibility"
+version = "0.1.0"
+description = "Research scaffold for satellite water evidence and infrastructure accessibility scenarios"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+flood-access = "flood_access.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

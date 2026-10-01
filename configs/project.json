@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "project_status": "scaffold",
+  "seed": 20261001,
+  "preferred_case_study": {
+    "region": "Queensland",
+    "candidate": "limited Brisbane-area 2022 flood",
+    "approved": false
+  },
+  "service_category": "hospital",
+  "paths": {
+    "data": "data",
+    "artifacts": "artifacts"
+  },
+  "evaluation": {
+    "primary_unit": "event",
+    "split_policy": "grouped-event-holdout",
+    "test_tuning_allowed": false
+  },
+  "mapping": {
+    "task": "observed_water",
+    "unknown_is_background": false,
+    "foundation_branch": "conditional_on_input_and_compute_audit"
+  },
+  "accessibility": {
+    "claim": "scenario_analysis",
+    "unknown_policy": "must_be_explicit",
+    "safe_navigation": false
+  }
+}
