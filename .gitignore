@@ -81,6 +81,7 @@ dist/
 .coverage
 htmlcov/
 node_modules/
+web/static/*.js.map
 .next/
 coverage/
 .DS_Store

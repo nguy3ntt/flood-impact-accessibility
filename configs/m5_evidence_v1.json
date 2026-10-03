@@ -1,0 +1,32 @@
+{
+  "schema_version": "m5_evidence_v1",
+  "m3_plan_id": "M3S-5b46f499953f",
+  "m3_reference_run_id": "M3-d352116ac45c",
+  "m4_control_run_id": "M4B-aa45d2a1794d",
+  "calibration_event_rank_salt": "m5-cal-v1",
+  "calibration_events": ["usa_20190522", "paraguay_20181031", "sri-lanka_20170530"],
+  "internal_check_events": ["pakistan_20170628", "india_20160812", "bolivia_20180215"],
+  "development_evaluation_events": ["cambodia_20180805", "ghana_20180918"],
+  "calibration": {
+    "method": "event_equal_monotone_logistic_on_fixed_ndwi",
+    "sample_block_pixels": 32,
+    "steps": 1500,
+    "learning_rate": 0.25,
+    "slope_l2": 0.005,
+    "reliability_bins": 10,
+    "decision_threshold": 0.5
+  },
+  "quality": {
+    "weak_index_denominator_below": 0.15,
+    "radiometric_extreme_above_toa": 0.4,
+    "ambiguity_margins": [0.0, 0.15, 0.25]
+  },
+  "scenarios": {
+    "block_pixels": 64,
+    "fixed_probability_thresholds": [0.65, 0.5, 0.35],
+    "structured_offset_seeds": [501, 502, 503, 504, 505, 506, 507, 508],
+    "maximum_block_probability_offset": 0.12,
+    "interpretation": "Designed spatial sensitivity cases; member frequencies are not event probabilities."
+  },
+  "final_test_access": "none"
+}

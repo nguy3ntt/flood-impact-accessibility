@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1030" viewBox="0 0 1100 1030" role="img" aria-labelledby="title desc">
+<title id="title">Final observed-water IoU by frozen method</title>
+<desc id="desc">Two-event macro IoU on Nigeria and Somalia final-test chips. MNDWI is 0.777; optical U-Net seed results vary.</desc>
+<rect width="1100" height="1030" fill="#f4f6f3"/>
+<text x="42" y="48" font-family="sans-serif" font-size="26" font-weight="700" fill="#17383d">Frozen final-test water benchmark</text>
+<text x="42" y="76" font-family="sans-serif" font-size="15" fill="#425e63">44 chips · 2 events · equal event weighting · identical eligible pixels</text>
+<text x="42" y="136" font-family="sans-serif" font-size="15" fill="#17383d">Radar VH threshold</text>
+<rect x="330" y="117" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="117" width="231.3" height="26" fill="#9bb8b6"/>
+<text x="990" y="136" font-family="monospace" font-size="16" fill="#17383d">0.356</text>
+<text x="42" y="194" font-family="sans-serif" font-size="15" fill="#17383d">NDWI</text>
+<rect x="330" y="175" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="175" width="446.2" height="26" fill="#9bb8b6"/>
+<text x="990" y="194" font-family="monospace" font-size="16" fill="#17383d">0.687</text>
+<text x="42" y="252" font-family="sans-serif" font-size="15" fill="#17383d">MNDWI</text>
+<rect x="330" y="233" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="233" width="505.1" height="26" fill="#127d80"/>
+<text x="990" y="252" font-family="monospace" font-size="16" fill="#17383d">0.777</text>
+<text x="42" y="310" font-family="sans-serif" font-size="15" fill="#17383d">Logistic baseline</text>
+<rect x="330" y="291" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="291" width="378.3" height="26" fill="#9bb8b6"/>
+<text x="990" y="310" font-family="monospace" font-size="16" fill="#17383d">0.582</text>
+<text x="42" y="368" font-family="sans-serif" font-size="15" fill="#17383d">Radar U-Net</text>
+<rect x="330" y="349" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="349" width="275.6" height="26" fill="#9bb8b6"/>
+<text x="990" y="368" font-family="monospace" font-size="16" fill="#17383d">0.424</text>
+<text x="42" y="426" font-family="sans-serif" font-size="15" fill="#17383d">Optical U-Net</text>
+<rect x="330" y="407" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="407" width="389.2" height="26" fill="#9bb8b6"/>
+<text x="990" y="426" font-family="monospace" font-size="16" fill="#17383d">0.599</text>
+<text x="42" y="484" font-family="sans-serif" font-size="15" fill="#17383d">Fusion optical, seed 4107</text>
+<rect x="330" y="465" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="465" width="519.0" height="26" fill="#607e82"/>
+<text x="990" y="484" font-family="monospace" font-size="16" fill="#17383d">0.798</text>
+<text x="42" y="542" font-family="sans-serif" font-size="15" fill="#17383d">Fusion optical, seed 4108</text>
+<rect x="330" y="523" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="523" width="402.1" height="26" fill="#607e82"/>
+<text x="990" y="542" font-family="monospace" font-size="16" fill="#17383d">0.619</text>
+<text x="42" y="600" font-family="sans-serif" font-size="15" fill="#17383d">Early fusion, seed 4107</text>
+<rect x="330" y="581" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="581" width="472.7" height="26" fill="#607e82"/>
+<text x="990" y="600" font-family="monospace" font-size="16" fill="#17383d">0.727</text>
+<text x="42" y="658" font-family="sans-serif" font-size="15" fill="#17383d">Early fusion, seed 4108</text>
+<rect x="330" y="639" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="639" width="406.1" height="26" fill="#607e82"/>
+<text x="990" y="658" font-family="monospace" font-size="16" fill="#17383d">0.625</text>
+<text x="42" y="716" font-family="sans-serif" font-size="15" fill="#17383d">Dropout fusion, seed 4107</text>
+<rect x="330" y="697" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="697" width="415.3" height="26" fill="#607e82"/>
+<text x="990" y="716" font-family="monospace" font-size="16" fill="#17383d">0.639</text>
+<text x="42" y="774" font-family="sans-serif" font-size="15" fill="#17383d">Dropout fusion, seed 4108</text>
+<rect x="330" y="755" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="755" width="324.8" height="26" fill="#607e82"/>
+<text x="990" y="774" font-family="monospace" font-size="16" fill="#17383d">0.500</text>
+<text x="42" y="832" font-family="sans-serif" font-size="15" fill="#17383d">Late fusion, seed 4107</text>
+<rect x="330" y="813" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="813" width="460.5" height="26" fill="#607e82"/>
+<text x="990" y="832" font-family="monospace" font-size="16" fill="#17383d">0.709</text>
+<text x="42" y="890" font-family="sans-serif" font-size="15" fill="#17383d">Late fusion, seed 4108</text>
+<rect x="330" y="871" width="650" height="26" fill="#dce6e2"/>
+<rect x="330" y="871" width="401.4" height="26" fill="#607e82"/>
+<text x="990" y="890" font-family="monospace" font-size="16" fill="#17383d">0.618</text>
+<text x="42" y="980" font-family="sans-serif" font-size="14" fill="#425e63">Observed-water label only; no closure or passability validation. Two events limit generalisation.</text>
+<text x="42" y="1005" font-family="sans-serif" font-size="13" fill="#425e63">Source: Cloud to Street / Bonafilia et al. (2020), Sen1Floods11; local run M8-7f2d625728ea.</text>
+</svg>

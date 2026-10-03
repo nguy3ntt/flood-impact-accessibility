@@ -1,0 +1,15 @@
+{
+  "schema_version": "m4_budget_control_v1",
+  "reference_config": "configs/m4_fusion_v1.json",
+  "budgets_per_event": [4, 16],
+  "seeds": [4107, 4108],
+  "patches_per_tile_by_budget": {"4": 8, "16": 2},
+  "epochs": 4,
+  "evaluation_conditions": ["clean"],
+  "maximum_training_step_difference_fraction": 0.02,
+  "candidate_rule": {
+    "minimum_macro_iou_gain_over_ndwi": 0.02,
+    "maximum_single_event_iou_loss": 0.05,
+    "require_all_seeds": true
+  }
+}

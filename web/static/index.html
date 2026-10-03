@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Flood Access · Analysis console</title>
+  <link rel="stylesheet" href="/static/app.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand-lockup"><span class="brand-mark" aria-hidden="true">FA<span>/</span></span><div class="brand-copy"><strong>FLOOD ACCESS</strong><span>RESEARCH CONSOLE / 01</span></div></div>
+    <div class="masthead-context"><span class="eyebrow">ACTIVE STUDY</span><strong id="case-title">Loading case…</strong></div>
+    <span id="mode-badge" class="mode-badge">LOCAL ANALYSIS</span>
+  </header>
+  <div id="error-banner" class="error-banner" role="alert" hidden></div>
+  <div class="case-strip" aria-label="Study context">
+    <div><span class="strip-index">01 / STUDY</span><strong>Retrospective flood impact</strong></div>
+    <div><span class="strip-index">02 / METHOD</span><strong>Scenario-based graph analysis</strong></div>
+    <div><span class="strip-index">03 / OUTPUT</span><strong>Estimated access change</strong></div>
+    <div class="strip-warning"><span class="strip-index">USE LIMIT</span><strong>Research only · no route guidance</strong></div>
+  </div>
+  <main class="workspace">
+    <aside class="analysis-console" aria-label="Analysis controls and provenance">
+      <section class="console-intro">
+        <span class="eyebrow">CONTROL DESK / 01</span>
+        <h1>Test the assumption.<br><em>Inspect the evidence.</em></h1>
+        <p>Choose a water mapping case and a road rule. Results below are simulated network effects.</p>
+      </section>
+      <section class="control-group" aria-labelledby="scenario-heading">
+        <div class="group-heading"><span>01</span><h2 id="scenario-heading">Build a scenario</h2></div>
+        <label for="scenario-select">Water mapping case</label><select id="scenario-select"></select>
+        <p class="field-note">Designed alternatives express sensitivity; their frequency is not a probability.</p>
+        <label for="policy-select">Road evidence rule</label><select id="policy-select"></select>
+        <label for="bridge-select">Bridge treatment</label><select id="bridge-select"></select>
+        <p id="scenario-assumption" class="assumption-note"></p>
+      </section>
+    </aside>
+    <section class="evidence-key" aria-label="Map layers and data provenance">
+      <section class="control-group layer-group" aria-labelledby="layer-heading">
+        <div class="group-heading"><span>02</span><h2 id="layer-heading">Read the map</h2></div>
+        <div class="layer-toggles">
+          <label class="check-row"><input type="checkbox" id="layer-water" checked><span>Water case</span></label>
+          <label class="check-row"><input type="checkbox" id="layer-roads" checked><span>Road network</span></label>
+          <label class="check-row"><input type="checkbox" id="layer-origins" checked><span>Origins + hospitals</span></label>
+        </div>
+        <div class="legend" aria-label="Map legend">
+          <div><i class="swatch swatch-water"></i><span>Water candidate</span></div>
+          <div><i class="swatch swatch-withheld"></i><span>Quality withheld</span></div>
+          <div><i class="swatch swatch-covered"></i><span>Inside image</span></div>
+          <div><i class="swatch swatch-unknown"></i><span>Outside: unknown</span></div>
+          <div><i class="swatch swatch-removed"></i><span>Assumed removed</span></div>
+        </div>
+      </section>
+      <section class="source-group" aria-labelledby="source-heading">
+        <div class="group-heading"><span>03</span><h2 id="source-heading">Data provenance</h2></div>
+        <dl id="source-dates" class="source-dates"></dl>
+        <p id="coverage-copy" class="coverage-copy"></p>
+        <p class="source-limit">Cloud status is unknown. Off-image roads are unknown, never confirmed dry.</p>
+      </section>
+    </section>
+    <section class="map-panel" aria-label="Interactive case map">
+      <div class="panel-topline">
+        <div><span class="eyebrow">GEOGRAPHIC EVIDENCE / 02</span><h2>Study area</h2></div>
+        <div class="map-actions" aria-label="Map controls">
+          <button id="fit-study" type="button">Study area</button><button id="fit-tile" type="button">Image area</button>
+          <button id="zoom-in" type="button" aria-label="Zoom in">+</button><button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+        </div>
+      </div>
+      <div class="map-shell">
+        <canvas id="case-map" aria-label="Road network, image footprint, origins and hospitals. Use the road search and tables for keyboard access."></canvas>
+        <div class="map-watermark">LOCAL DATA / NO EXTERNAL MAP TILES</div>
+        <div id="map-status" class="map-status" aria-live="polite">Loading map…</div>
+      </div>
+      <div class="map-foot"><span>Road colour shows evidence and assumptions, not passability.</span><span>Drag to pan / scroll to zoom / select road</span></div>
+    </section>
+    <section class="metric-card" aria-label="Selected scenario summary">
+      <div class="metric-title"><span class="eyebrow">ACCESS RESULT / 03</span><strong>Selected graph case</strong></div>
+      <div class="metric-grid">
+        <div><strong id="metric-disconnected">—</strong><span>Newly disconnected<br>origins</span></div>
+        <div><strong id="metric-closed">—</strong><span>Segments assumed<br>removed</span></div>
+        <div><strong id="metric-paired">—</strong><span>Paired reachable<br>origins</span></div>
+      </div>
+      <p id="metric-baseline" class="metric-foot"></p>
+    </section>
+    <section class="result-panel" aria-labelledby="results-heading">
+      <div class="panel-topline results-topline">
+        <div><span class="eyebrow">ACCESS LEDGER / 04</span><h2 id="results-heading">Compare origins and facilities</h2></div>
+        <a id="export-link" class="export-button" href="#" download>Export selected analysis <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="result-grid">
+        <div class="table-section">
+          <div class="subheading"><h3>Origin access</h3><span>Estimated graph-node costs</span></div>
+          <div class="table-wrap"><table><thead><tr>
+            <th scope="col"><button type="button" id="sort-origin">Origin ↕</button></th>
+            <th scope="col"><button type="button" id="sort-baseline">Baseline ↕</button></th>
+            <th scope="col"><button type="button" id="sort-selected">Selected case ↕</button></th>
+            <th scope="col">Designed members</th>
+          </tr></thead><tbody id="origin-body"></tbody></table></div>
+        </div>
+        <div class="hospital-wrap">
+          <div class="subheading"><h3>Hospital candidates</h3><span id="hospital-count"></span></div>
+          <div id="hospital-list"></div>
+          <p id="hospital-note" class="hospital-note">Facility positions are snapped road nodes. Operating status in 2019 is unknown.</p>
+        </div>
+      </div>
+    </section>
+    <section class="limitations" aria-labelledby="limits-heading">
+      <div><span class="eyebrow">READ BEFORE USE / 05</span><h2 id="limits-heading">Interpretation limits</h2></div>
+      <ul id="limits-list"></ul>
+    </section>
+  </main>
+  <aside id="evidence-drawer" class="evidence-drawer" aria-labelledby="drawer-title" hidden>
+    <div class="drawer-head"><div><span class="eyebrow">SEGMENT RECORD / INSPECTION</span><h2 id="drawer-title">Road evidence</h2></div><button id="close-drawer" type="button" aria-label="Close road evidence">×</button></div>
+    <form id="road-search" class="road-search"><label for="road-id">Find segment ID</label><div><input id="road-id" type="text" placeholder="osm:… or demo:…"><button type="submit">Find</button></div></form>
+    <div class="quick-links"><button type="button" id="inspect-exposed">Exposed example</button><button type="button" id="inspect-bridge">Bridge example</button><button type="button" id="inspect-outside">Outside image</button></div>
+    <div id="road-detail" class="road-detail"><p>Select a road on the map or use an example above.</p></div>
+  </aside>
+  <button id="open-drawer" class="drawer-tab" type="button">Inspect road evidence <span aria-hidden="true">↗</span></button>
+</body>
+</html>

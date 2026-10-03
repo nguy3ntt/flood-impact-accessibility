@@ -1,0 +1,47 @@
+{
+  "schema_version": "m8_final_v1",
+  "frozen_on": "2026-10-03",
+  "purpose": "One-time untouched-event observed-water evaluation; no fitting, threshold selection or model promotion on final labels.",
+  "catalog_sha256": "9309e750714fb41a2bf9ff8a9dcd329f77585154cfc6473c087f1ecee869301a",
+  "event_split_sha256": "675cdd61c83f0ebde519b8d33359f616ecf303a9f97066c7758db33d3281778a",
+  "final_event_chip_counts": {
+    "nigeria_20180921": 18,
+    "somalia_20180507": 26
+  },
+  "max_new_source_bytes": 314572800,
+  "references": {
+    "m3_run_id": "M3-d352116ac45c",
+    "m3_manifest_sha256": "e6ca422afe934907223ffdfab4b6efef6084ccacafe90acd04aa591a18c12d68",
+    "m4_run_id": "M4B-aa45d2a1794d",
+    "m4_manifest_sha256": "27574067b15e39fddf62a087def5967f6e44c5339fc5112c2c22960e8c799bf4",
+    "m5_run_id": "M5-abdaa2bb2731",
+    "m5_manifest_sha256": "47f19768eb127bcd22e5bf46ce99ffb2f547a79b4f5675923753a0d2b6abf109"
+  },
+  "m3_methods": ["radar_vh", "ndwi", "mndwi", "logistic", "radar_unet", "optical_unet"],
+  "m3_thresholds": {
+    "radar_vh": 23.0,
+    "ndwi": -0.05,
+    "mndwi": 0.15,
+    "logistic": 0.5,
+    "radar_unet": 0.5,
+    "optical_unet": 0.5
+  },
+  "m4_clean_methods": ["radar", "optical", "early", "robust_early", "late"],
+  "m4_budget_per_event": 16,
+  "m4_seeds": [4107, 4108],
+  "m4_threshold": 0.5,
+  "m5_reliability_bins": 10,
+  "m5_quality_policy": {
+    "weak_index_denominator_below": 0.15,
+    "radiometric_extreme_above_toa": 0.4,
+    "ambiguity_margin": 0.15
+  },
+  "reporting": {
+    "primary_unit": "event",
+    "common_support": "known source label, both sensors valid, and both optical index denominators defined",
+    "comparisons": ["per-event and two-event macro IoU/F1 at frozen thresholds",
+                    "M5 per-event Brier, ECE and retained coverage against fixed scaling and calibration prevalence"],
+    "uncertainty": "Two final events are too few for a narrow generalisation interval. Do not bootstrap pixels or claim universal transfer.",
+    "water_semantics": "Source observed-water label, not event-specific flood water, road closure or passability."
+  }
+}

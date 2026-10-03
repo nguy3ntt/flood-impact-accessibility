@@ -1,0 +1,29 @@
+{
+  "schema_version": "m4_fusion_v1",
+  "m3_plan_id": "M3S-5b46f499953f",
+  "m3_reference_run_id": "M3-d352116ac45c",
+  "train_tiles_per_event": [4, 16],
+  "seeds": [4107, 4108],
+  "unet": {
+    "epochs": 4,
+    "patches_per_tile": 2,
+    "patch_size": 128,
+    "base_channels": 8,
+    "learning_rate": 0.001,
+    "robust_full_dropout_probability": 0.3,
+    "robust_block_dropout_probability": 0.3
+  },
+  "late_fusion": {"radar_weight": 0.5, "optical_weight": 0.5},
+  "stress": {
+    "block_fraction": 0.25,
+    "brightening_mix": 0.35,
+    "evaluation_budget": 16,
+    "evaluation_seed": 4107
+  },
+  "decision_threshold": 0.5,
+  "evaluation": {
+    "clean_support": "m3_common_eligible",
+    "heldout_events": ["cambodia_20180805", "ghana_20180918"],
+    "final_test_access": "none"
+  }
+}
